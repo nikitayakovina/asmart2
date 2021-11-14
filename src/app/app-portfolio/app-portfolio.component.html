@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-list" id="sidebar-list">
+            <button class="btn">
+                <p>Выберите сферу бизнеса</p>
+            </button>
+            <div class="sidebar-item__line"></div>
+            <button class="btn"><p>Все проекты</p></button>
+            <button *ngFor="let i of btn" class="btn" (click)="getInfoByFilter(i)">{{i}}</button>
+        </div>
+    </div>
+    <div class="container">
+        <h2>Портфолио</h2>
+        <h3>Более 500 успешных проектов</h3>
+        <div id="shops" *ngFor="let item of shops$">
+            <div id="shops-item" *ngFor="let o of item.object">
+                <div class="shops-item__header">
+                    <p id="shops-item__header-name">{{o.name}}</p>
+                    <p id="shops-item__header-url">{{o.url}}</p>
+                </div>
+                <div class="shops-item__line"></div>
+                <div class="shops-item__card" *ngFor="let d of o.description">
+                    <div class="shops-item__card-title">{{d.description_title}}</div>
+                    <div class="shops-item__card-subtitle">{{d.description_subtitle}}</div>
+                    <div class="shops-item__card-img">{{d.description_img}}</div>
+                    <div class="shops-item__card-btn"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
